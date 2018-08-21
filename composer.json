@@ -1,0 +1,24 @@
+{
+    "name": "baytek/sage50",
+    "description": "CSV Generator for Sage50 import",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yvon Viger",
+            "email": "yvon@baytek.ca"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Baytek\\Commerce\\Sage50\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "nesbot/carbon": "^1.33"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
+}
