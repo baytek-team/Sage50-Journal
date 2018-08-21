@@ -3,6 +3,10 @@ This simple library is used to generate Sage 50 journal files. There is little
 validation but the purpose is to have the library here in the event that we want to 
 extend functionality.
 
+## Alternatives
+Something to look into as an alternative
+- https://github.com/smart-io/php-sage50
+
 ## Base use
 Below is a sample of how you would create a journal entry file. Note that a carbon
 date is required.

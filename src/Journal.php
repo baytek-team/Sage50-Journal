@@ -9,26 +9,31 @@ use Baytek\Commerce\Sage50\Allocation;
 class Journal 
 {
     // use Traits\StringifyColumn;
+    protected $allocations = [];
 
-    private $date;
-    private $id;
-    private $description;
-    private $currency;
-    private $exchange;
-    private $allocations = [];
-
+    /**
+     * Constructor for Sage50 Journal builder
+     *
+     * @param Carbon\Carbon $date        The date that the batch was processed
+     * @param string        $id          Id used to display in the header
+     * @param string        $description Description of the document
+     * @param string        $currency    Currency to be saved in the software
+     * @param float         $exchange    The exchange rate to be saved in software
+     */
     public function __construct(
         Carbon $date, 
         string $id, 
-        string $description = "", 
-        string $currency = 'CAD', 
-        float $exchange = 1
+        string $description = '', 
+        string $currency = '', 
+        float $exchange = 0
     ) {
-        $this->date = $date;
-        $this->id = $id;
-        $this->description = $description;
-        $this->currency = $currency;
-        $this->exchange = $exchange;
+        $this->header = new Header([
+            'date' => $date->format('m-d-y'),
+            'id' => $id,
+            'description' => $description,
+            'currency' => $currency,
+            'exchange' => $exchange,
+        ]);
     }
 
     /**
@@ -98,16 +103,7 @@ class Journal
     public function export(): string
     {
         $buffer = '';
-
-        $header = [
-            $this->date->format('m-d-y'),
-            "\"{$this->id}\"",
-            "\"{$this->description}\"",
-            $this->currency,
-            $this->exchange
-        ];
-
-        $buffer .= implode(', ', $header)."\r\n";
+        $buffer .= $this->header;
 
         foreach ($this->allocations as $allocation) {
             $buffer .= $allocation;
@@ -116,5 +112,4 @@ class Journal
 
         return $buffer;
     }
-
 }
