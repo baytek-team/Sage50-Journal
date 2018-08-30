@@ -109,7 +109,6 @@ class Journal
             $buffer .= $allocation;
         }
 
-
-        return $buffer;
+        return trim($buffer);
     }
 }

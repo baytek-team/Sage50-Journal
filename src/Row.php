@@ -6,6 +6,7 @@ use Exception;
 
 abstract class Row 
 {
+    const NEWLINE = "\n"; 
     /**
      * Constructor that can take an array of properties
      *
@@ -82,6 +83,6 @@ abstract class Row
             }
         );
 
-        return implode(',', array_values($properties))."\r\n";
+        return implode(',', array_values($properties)).self::NEWLINE;
     }
 }
