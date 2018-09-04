@@ -19,6 +19,17 @@ class Header extends Row
         'exchange' => null,
     ];
 
+    /**
+     * Fields that should be treated as strings
+     *
+     * @var array
+     */
     protected $stringable = ['id', 'description'];
+
+    /**
+     * Optional fields that do not need columns
+     *
+     * @var array
+     */
     protected $optional = ['description', 'currency', 'exchange'];
 }

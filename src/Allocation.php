@@ -17,8 +17,17 @@ class Allocation extends Row
         'description' => null
     ];
 
+    /**
+     * Fields that should be treated as strings
+     *
+     * @var array
+     */
     protected $stringable = ['description'];
-    protected $optional = ['description'];
 
-    
+    /**
+     * Optional fields that do not need columns
+     *
+     * @var array
+     */
+    protected $optional = ['description'];
 }

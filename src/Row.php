@@ -6,7 +6,11 @@ use Exception;
 
 abstract class Row 
 {
+    /**
+     * New line character
+     */
     const NEWLINE = "\n"; 
+    
     /**
      * Constructor that can take an array of properties
      *
@@ -23,7 +27,7 @@ abstract class Row
      * Magic getter that validates the property
      *
      * @param string $property
-     * @return void
+     * @return mixed
      */
     public function __get(string $property)
     {
