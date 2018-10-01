@@ -9,7 +9,7 @@ abstract class Row
     /**
      * New line character
      */
-    const NEWLINE = "\n"; 
+    const NEWLINE = "\r\n"; 
     
     /**
      * Constructor that can take an array of properties
